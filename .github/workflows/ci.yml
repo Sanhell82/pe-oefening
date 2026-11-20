@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/olenasangare/pxl-app:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/olenasangare/pe-github-actions-SanHell-82:${{ github.sha }}
 
     
       - name: Altijd uitvoeren
