@@ -1,27 +1,46 @@
+# Deel 1 - quality.yml
+# Draait bij het openen van een pull request naar main.
 name: Check code quality
 
 on:
-  pull_request:
+  pull_request:                 # trigger: pull request
     branches: [main]
 
+# Rechten: checks: write is nodig zodat de test-reporter
+# het rapport als "check" in de run en in de PR kan tonen.
+permissions:
+  contents: read
+  checks: write
+
 jobs:
-  quality:                            
-    runs-on: ubuntu-latest          
+  quality:
+    runs-on: ubuntu-latest
     steps:
+      # 1. Fetch code: code van de repo naar de runner
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2. Node.js installeren op de runner
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
+      # 3. Dependencies installeren (ook eslint en jest uit package.json)
       - name: Install dependencies
         run: npm install
 
-      - name: Unit tests met coverage
-        run: npm test -- --coverage
+      # 4. Code quality: "npm run lint" voert het script "eslint ." uit package.json uit.
+      #    Bij ESLint-fouten faalt deze stap en dus de hele workflow.
+      - name: Check code quality (ESLint)
+        run: npm run lint
 
+      # 5. Unit tests: "npm test" = "jest --coverage" uit package.json.
+      #    jest-junit (jest.config.js) schrijft het rapport naar junit.xml.
+      - name: Unit tests
+        run: npm test
+
+      # 6. Rapporten bewaren als artifact (ook als tests falen)
       - name: Upload test reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -31,3 +50,12 @@ jobs:
             junit.xml
             coverage/
 
+      # 7. Test-reporter (marketplace action): toont junit.xml
+      #    als leesbaar testrapport in de Actions-run en in de PR.
+      - name: Test report
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Unit tests
+          path: junit.xml
+          reporter: jest-junit
