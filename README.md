@@ -52,10 +52,11 @@ Zorg voor minstens één succesvolle run van deze pipeline.
 Voeg in onderstaande code block de url toe van je Dockerhub repository van de container:
 
 ```
-<jouw-dockerhub-username>/pxl-app:<commit-hash>
+/olenasangare/pxl-app:<commit-hash>
 ```
 
 ## Indienen
+/olenasangare/pxl-app:latest
 
 Volg volgende stappen om je werk in te dienen:
 
