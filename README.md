@@ -66,3 +66,4 @@ Volg volgende stappen om je werk in te dienen:
 4. Controleer of je de url naar je dockerhub repository hebt toegevoegd aan regel 58 van deze `README.md` file.
 5. Commit de laatste versie van je werk met het commit bericht "einde examen" en push deze naar Github.
 6. Roep de docent, deze controleert de laatste commit op Github. Hierna mag je het lokaal verlaten.
+
