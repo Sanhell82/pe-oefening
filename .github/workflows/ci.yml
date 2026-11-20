@@ -25,6 +25,8 @@ jobs:
         with:
           context: .
           push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/olenasangare/pxl-app:latest
+        
 
     
       - name: Altijd uitvoeren
