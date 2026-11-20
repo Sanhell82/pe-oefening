@@ -1,0 +1,33 @@
+{
+  "chat.disableAIFeatures": true,
+
+
+  "github.copilot.enable": false,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "github.copilot.editor.enableCodeActions": false,
+
+
+  "chat.agent.enabled": false,
+  "chat.agent.maxRequests": 0,
+
+
+  "extensions.allowed": {
+    "*": true,
+    "GitHub.copilot": false,
+    "GitHub.copilot-chat": false,
+    "openai.chatgpt": false,
+    "anthropic.claude-code": false,
+    "saoudrizwan.claude-dev": false,
+    "Continue.continue": false,
+    "TabNine.tabnine-vscode": false,
+    "Codeium.codeium": false,
+    "Google.geminicodeassist": false,
+    "AmazonWebServices.amazon-q-vscode": false,
+    "Google.google-antigravity": false
+  },
+
+  "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+
+  "telemetry.telemetryLevel": "off"
+}
