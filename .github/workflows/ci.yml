@@ -27,8 +27,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/olenasangare/pxl-app:${{ github.sha }}
         
-
-    
       - name: Altijd uitvoeren
         if: always()
         run: |
