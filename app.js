@@ -4,7 +4,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// const unusedVar = 42; // This is an unused variable for testing linting
+const unusedVar = 42; // This is an unused variable for testing linting
 
 // Swagger configuration
 const swaggerOptions = {
